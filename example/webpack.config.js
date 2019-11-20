@@ -18,12 +18,6 @@ module.exports = {
     ],
     module: {
         rules: [
-            // loader的加载顺序是从右到左的
-            // css-loader是帮助webpack编译css文件. 而style-loader是将最终编译的结果放到HTML中生效
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            },
             {
                 test: /\.(gql|graphql)$/,
                 use: [{

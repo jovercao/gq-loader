@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "8032135475ddaf8b6a53";
+/******/ 	var hotCurrentHash = "c204bf3f34e339e12f86";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1294,7 +1294,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("\nvar gql = __webpack_require__(/*! @jovercao/gql-js */ \"../node_modules/@jovercao/gql-js/index.js\");\nvar blocks = {\"getAuthor\":\"query getAuthor($id: Int!) {\\n  author(id: $id) {\\n    name\\n    posts {\\n      id\\n      title\\n    }\\n  }\\n}\",\"getPosts\":\"query getPosts {\\n  posts {\\n    id\\n    title\\n  }\\n}\"}\nvar fragments = {}\nvar client\nvar wrap = function(block, name){\n  let fn\n  var req = function(variables) {\n    // 以当前路径匹配客户端\n    if (!client) {\n      client = gql.match(\"D:\\\\workspace\\\\jovercao\\\\gql-loader\\\\example\\\\src\\\\gql\")\n      client.fragment(fragments)\n    }\n    if (!fn) {\n      fn = client(block)\n    }\n    return fn(variables)\n  }\n  req.raw = block\n  req.type = block.indexOf('mutation ') ? 'mutation' : 'query'\n  return req\n}\nvar exportBlock = {} \nvar length = 0\nfor(var key in blocks) {\n  length++\n  exportBlock[key] = wrap(blocks[key], key)\n}\nexportBlock._raw = Object.values(blocks)\nexportBlock._debug = false\nif (length === 1) {\n  // if only one, just export for compatible\n  module.exports = Object.values(exportBlock).shift()\n} else {\n  module.exports = exportBlock;\n}\n\n\n//# sourceURL=webpack:///./src/gql/main.gql?");
+eval("\nvar gql = __webpack_require__(/*! @jovercao/gql-js */ \"../node_modules/@jovercao/gql-js/index.js\");\nvar blocks = {\"getAuthor\":\"query getAuthor($id: Int!) {\\n  author(id: $id) {\\n    ...authorFields\\n  }\\n}\",\"getPosts\":\"query getPosts {\\n  posts {\\n    ...postFields\\n  }\\n}\"}\nvar fragments = {\"postFields\":\" on Post {\\n  id\\n  title\\n}\",\"authorFields\":\" on Author {\\n  name\\n  posts {\\n    ...postFields\\n  }\\n}\"}\nvar client\nvar wrap = function(block, name){\n  let fn\n  var req = function(variables) {\n    // 以当前路径匹配客户端\n    if (!client) {\n      client = gql.match(\"D:\\\\workspace\\\\jovercao\\\\gql-loader\\\\example\\\\src\\\\gql\")\n      client.fragment(fragments)\n    }\n    if (!fn) {\n      fn = client(block)\n    }\n    return fn(variables)\n  }\n  req.raw = block\n  req.type = block.indexOf('mutation ') ? 'mutation' : 'query'\n  return req\n}\nvar exportBlock = {} \nvar length = 0\nfor(var key in blocks) {\n  length++\n  exportBlock[key] = wrap(blocks[key], key)\n}\nexportBlock._raw = Object.values(blocks)\nexportBlock._debug = false\nif (length === 1) {\n  // if only one, just export for compatible\n  module.exports = Object.values(exportBlock).shift()\n} else {\n  module.exports = exportBlock;\n}\n\n\n//# sourceURL=webpack:///./src/gql/main.gql?");
 
 /***/ }),
 

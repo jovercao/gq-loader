@@ -1,16 +1,23 @@
+fragment postFields on Post {
+    id
+    title
+} 
+
+fragment authorFields on Author {
+    name
+    posts {
+        ...postFields
+    }
+}
+
 query getAuthor($id: Int!) {
     author(id: $id) {
-        name
-        posts {
-            id
-            title
-        }
+        ...authorFields
     }
 }
 
 query getPosts {
     posts {
-        id
-        title
+        ...postFields
     }
 }
