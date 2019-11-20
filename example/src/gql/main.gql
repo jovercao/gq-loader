@@ -1,0 +1,16 @@
+query getAuthor($id: Int!) {
+    author(id: $id) {
+        name
+        posts {
+            id
+            title
+        }
+    }
+}
+
+query getPosts {
+    posts {
+        id
+        title
+    }
+}
